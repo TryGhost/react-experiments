@@ -6,7 +6,7 @@ Ghost's current application has behaviour where when some components in the appl
 
 - A `draggable` store slice, with two reducers – `startDragging` and `stopDragging` – that manipulate the value of a boolean, `isDragging`
 - A `Draggable` component, which when dragging starts or stops, dispatches the appropriate action creator created by the `draggable` slice
-- A `Dropdown` component, which uses a selector to read the `isDragging` value out of the store, and then closes the dropdowns as appropriate while dragging is in progress
+- A `Dropdown` component, which uses a selector to read the `isDragging` value out of the store, and then closes the dropdowns whenever it's set to `true`
 
 ## To run
 
