@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { startDragging, stopDragging } from "../slices/draggableSlice";
+import { startDragging, stopDragging } from "../store/draggable";
 
 export const Draggable = ({ children }) => {
   const dispatch = useDispatch();
