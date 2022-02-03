@@ -1,12 +1,19 @@
-import { HomeLink } from "./components/drawer/HomeLink";
-import { Drawer } from "./components/layout/Drawer";
-import { TwoPane } from "./components/layout/TwoPane";
+import { DrawerLayout } from "./component-library/layouts/DrawerLayout";
+import { HomeLink } from "./component-library/drawer/HomeLink";
+import { Logo } from "./component-library/drawer/Logo";
+import { MemberListPage } from "./pages/MemberListPage";
 
 export const App = () => (
-  <TwoPane>
-    <Drawer>
-      <HomeLink />
-    </Drawer>
-    <div>yo</div>
-  </TwoPane>
+  <DrawerLayout
+    drawer={
+      <>
+        <HomeLink>
+          <Logo />
+          Josh Demo
+        </HomeLink>
+      </>
+    }
+  >
+    <MemberListPage />
+  </DrawerLayout>
 );
