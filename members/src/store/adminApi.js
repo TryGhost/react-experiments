@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { getJWTFromStaffAccessToken } from "../utils/jwt";
+import camelcaseKeys from "camelcase-keys";
 
 export const adminApi = createApi({
   reducerPath: "adminApi",
@@ -16,7 +17,13 @@ export const adminApi = createApi({
       },
     });
 
-    return defaultQuery(args, api, extraOptions);
+    const response = await defaultQuery(args, api, extraOptions);
+
+    if (response.data) {
+      response.data = camelcaseKeys(response.data, { deep: true });
+    }
+
+    return response;
   },
   endpoints: (builder) => ({
     getSite: builder.query({
