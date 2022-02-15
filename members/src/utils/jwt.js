@@ -1,8 +1,8 @@
 import { SignJWT } from "jose";
 import { Buffer } from "buffer/";
 
-export const getTokenFromKey = async (key) => {
-  const [id, secret] = key.split(":");
+export const getJWTFromStaffAccessToken = async (accessToken) => {
+  const [id, secret] = accessToken.split(":");
 
   const signer = new SignJWT({})
     .setProtectedHeader({ kid: id, alg: "HS256" })
