@@ -3,8 +3,10 @@ import { createStitches } from "@stitches/react";
 export const { styled } = createStitches({
   theme: {
     colors: {
+      background: "#fff",
       text: "#000",
-      paneSeperator: "#e6e9eb",
+      drawerSeperator: "#e6e9eb",
+      placeholder: "#ccc",
     },
     sizes: {
       logo: "32px",
@@ -12,10 +14,16 @@ export const { styled } = createStitches({
     space: {
       drawer: "32px",
       body: "32px 48px",
+      panel: "24px",
+      input: "12px",
+      rhythm: "24px",
     },
     fontSizes: {
       15: "15px",
       32: "32px",
+    },
+    radii: {
+      panel: "10px",
     },
     fonts: {
       system:

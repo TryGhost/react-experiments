@@ -8,7 +8,7 @@ const Wrapper = styled("main", {
 
 const Drawer = styled("nav", {
   padding: "$drawer",
-  borderRight: "1px $paneSeperator solid",
+  borderRight: "1px $drawerSeperator solid",
 });
 
 const Body = styled("main", {
