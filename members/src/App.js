@@ -11,12 +11,12 @@ const AuthPage = React.lazy(() => import("./pages/AuthPage"));
 const MemberListPage = React.lazy(() => import("./pages/MemberListPage"));
 
 const Drawer = () => {
-  const { data: siteData, isLoading: siteIsLoading } = useGetSiteQuery();
+  const { data: siteData } = useGetSiteQuery();
 
   return (
     <HomeLink>
       <Logo />
-      {!siteIsLoading && siteData?.site?.title}
+      {siteData?.site?.title}
     </HomeLink>
   );
 };
