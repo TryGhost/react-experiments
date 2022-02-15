@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require "csv"
+
+def how_to
+  puts "Usage:"
+  puts "$ generate_dummy_members <email_to_adapt> <members_to_generate> <number_to_start_from>"
+  exit 1
+end
+
+def is_positive_integer?(arg)
+  Integer(arg) > 0 rescue false
+end
+
+how_to if !ARGV[0] || !ARGV[1] || !ARGV[2]
+
+email = ARGV[0].split("@")
+
+how_to unless email.count == 2
+how_to unless email[1] =~ /^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$/
+how_to unless is_positive_integer?(ARGV[1])
+how_to unless is_positive_integer?(ARGV[2])
+
+count = Integer(ARGV[1])
+starting_point = Integer(ARGV[2])
+
+output = CSV.generate do |csv|
+  csv << ["email", "name", "note", "subscribed_to_emails", "labels", "created_at"]
+  count.times do |x|
+    csv << [
+      "#{email[0]}-ghost-#{x + starting_point}@#{email[1]}",
+      "Test #{x + starting_point}",
+      "",
+      "false",
+      "dummy",
+      DateTime.now.to_s
+    ]
+  end
+end
+
+puts output
