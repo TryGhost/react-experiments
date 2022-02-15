@@ -34,3 +34,5 @@ export const AuthPage = () => {
     </form>
   );
 };
+
+export default AuthPage;
