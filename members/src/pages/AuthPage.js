@@ -23,7 +23,12 @@ export const AuthPage = () => {
       />
 
       <Label htmlFor="staffAccessToken">Staff access token</Label>
-      <Input id="staffAccessToken" required {...register("staffAccessToken")} />
+      <Input
+        id="staffAccessToken"
+        pattern=".*:.*"
+        required
+        {...register("staffAccessToken")}
+      />
 
       <Button type="submit">Submit</Button>
     </form>
