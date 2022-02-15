@@ -1,0 +1,9 @@
+body,
+#root {
+  min-height: 100vh;
+}
+
+* {
+  font-family: var(--fonts-system);
+  font-size: var(--fontSizes-15);
+}

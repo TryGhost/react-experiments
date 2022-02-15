@@ -1,21 +1,19 @@
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { DrawerLayout } from "./component-library/layouts/DrawerLayout";
+import { HomeLink } from "./component-library/drawer/HomeLink";
+import { Logo } from "./component-library/drawer/Logo";
+import { MemberListPage } from "./pages/MemberListPage";
 
-export default App;
+export const App = () => (
+  <DrawerLayout
+    drawer={
+      <>
+        <HomeLink>
+          <Logo />
+          Josh Demo
+        </HomeLink>
+      </>
+    }
+  >
+    <MemberListPage />
+  </DrawerLayout>
+);
