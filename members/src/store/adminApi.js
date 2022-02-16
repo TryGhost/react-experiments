@@ -29,7 +29,10 @@ export const adminApi = createApi({
     getSite: builder.query({
       query: () => "site/",
     }),
+    getMembers: builder.query({
+      query: () => "members/?order=created_at desc",
+    }),
   }),
 });
 
-export const { useGetSiteQuery } = adminApi;
+export const { useGetSiteQuery, useGetMembersQuery } = adminApi;
