@@ -6,9 +6,9 @@ const Wrapper = styled("div", {
   gridTemplateColumns: "50px auto",
 });
 
-export const MemberProfile = ({ name, email, avatarImage }) => (
+export const MemberProfile = ({ name, email, imageUrl }) => (
   <Wrapper>
-    <Avatar name={name || ""} imageUrl={avatarImage} />
+    <Avatar name={name || ""} imageUrl={imageUrl} />
     <div>
       <strong>{name}</strong>
       <br />

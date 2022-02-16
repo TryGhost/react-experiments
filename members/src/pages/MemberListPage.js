@@ -29,7 +29,11 @@ export const MemberListPage = () => {
             <TableRow
               id={member.id}
               values={[
-                <MemberProfile {...member} />,
+                <MemberProfile
+                  name={member.name}
+                  email={member.email}
+                  imageUrl={member.avatarImage}
+                />,
                 member.emailOpenRate || "N/A",
                 <MemberLocation geolocationJSON={member.geolocation} />,
                 <>
