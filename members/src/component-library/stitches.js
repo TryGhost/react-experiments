@@ -20,6 +20,7 @@ export const { styled } = createStitches({
     },
     fontSizes: {
       15: "15px",
+      16: "16px",
       32: "32px",
     },
     radii: {
