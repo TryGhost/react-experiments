@@ -1,8 +1,8 @@
 import { PageTitle } from "../component-library/common/PageTitle";
 import { Table } from "../component-library/table/Table";
 import { MemberProfile } from "../component-library/members/MemberProfile";
+import { MemberLocation } from "../component-library/members/MemberLocation";
 import { useGetMembersQuery } from "../store/adminApi";
-import { getCountryFromGeolocationJSON } from "../utils/geolocation";
 import { formatDate, formatTimeAgo } from "../utils/dateTime";
 import { formatNumber } from "../utils/lang";
 import { TableHeader } from "../component-library/table/TableHeader";
@@ -14,7 +14,7 @@ export const MemberListPage = () => {
   return (
     <>
       <PageTitle accessories={<>filters</>}>Members</PageTitle>
-      <Table columns="1fr 1fr">
+      <Table columns="45% 1fr 1fr 1fr">
         <TableHeader
           values={[
             `${formatNumber(data?.meta.pagination.total || 0)} Members`,
@@ -27,10 +27,11 @@ export const MemberListPage = () => {
         {!loading &&
           data?.members.map((member) => (
             <TableRow
+              id={member.id}
               values={[
                 <MemberProfile {...member} />,
                 member.emailOpenRate || "N/A",
-                getCountryFromGeolocationJSON(member.geolocation) || "Unknown",
+                <MemberLocation geolocationJSON={member.geolocation} />,
                 <>
                   {formatDate(member.createdAt)}
                   <br />

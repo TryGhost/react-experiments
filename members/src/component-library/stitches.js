@@ -5,8 +5,7 @@ export const { styled } = createStitches({
     colors: {
       background: "#fff",
       text: "#000",
-      drawerSeperator: "#e6e9eb",
-      placeholder: "#ccc",
+      seperator: "#e6e9eb",
     },
     sizes: {
       logo: "32px",
@@ -19,6 +18,7 @@ export const { styled } = createStitches({
       rhythm: "24px",
     },
     fontSizes: {
+      12: "12px",
       15: "15px",
       16: "16px",
       32: "32px",

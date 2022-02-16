@@ -3,7 +3,7 @@ import { Avatar } from "../common/Avatar";
 
 const Wrapper = styled("div", {
   display: "grid",
-  gridTemplateColumns: "60px auto",
+  gridTemplateColumns: "50px auto",
 });
 
 export const MemberProfile = ({ name, email, avatarImage }) => (

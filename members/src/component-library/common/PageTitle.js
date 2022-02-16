@@ -8,6 +8,7 @@ const Wrapper = styled("div", {
 const H1 = styled("h1", {
   fontSize: "$32",
   fontWeight: "bold",
+  marginBottom: "$rhythm",
 });
 
 const Accessories = styled("div", {});
