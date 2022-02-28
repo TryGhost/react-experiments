@@ -13,8 +13,8 @@ const Wrapper = styled("div", {
 
 export const TableHeader = ({ columns, values = [] }) => (
   <Wrapper style={{ gridTemplateColumns: columns }}>
-    {values.map((value) => (
-      <div>{value}</div>
+    {values.map((value, index) => (
+      <div key={index}>{value}</div>
     ))}
   </Wrapper>
 );

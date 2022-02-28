@@ -1,7 +1,6 @@
-import { useSelector } from "react-redux";
 import { styled } from "../stitches";
 
-const Wrapper = styled("a", {
+const Wrapper = styled("div", {
   display: "grid",
   height: 80,
   alignItems: "center",
@@ -10,17 +9,14 @@ const Wrapper = styled("a", {
   color: "$text",
 });
 
-export const TableRow = ({ id, columns, values = [] }) => {
-  const siteUrl = useSelector((state) => state.config.siteUrl);
-
-  return (
-    <Wrapper
-      href={`${siteUrl}/ghost/#/members/${id}`}
-      style={{ gridTemplateColumns: columns }}
-    >
-      {values.map((value) => (
-        <div>{value}</div>
-      ))}
-    </Wrapper>
-  );
-};
+export const TableRow = ({ columns, link = undefined, values = [] }) => (
+  <Wrapper
+    href={link}
+    style={{ gridTemplateColumns: columns }}
+    as={link ? "a" : undefined}
+  >
+    {values.map((value, index) => (
+      <div key={index}>{value}</div>
+    ))}
+  </Wrapper>
+);
