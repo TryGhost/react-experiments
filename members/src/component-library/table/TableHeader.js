@@ -5,6 +5,12 @@ const Wrapper = styled("div", {
   textTransform: "uppercase",
   fontSize: "$12",
   padding: "10px 0",
+  position: "sticky",
+  top: 0,
+  left: 0,
+  zIndex: 1,
+  backgroundColor: "#fff",
+  borderBottom: "1px $seperator solid",
 
   div: {
     fontSize: "inherit",

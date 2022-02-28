@@ -30,7 +30,7 @@ export const adminApi = createApi({
       query: () => "site/",
     }),
     getMembers: builder.query({
-      query: (page) => `members/?page=${page}&order=created_at desc`,
+      query: (page) => `members/?page=${page}&limit=50&order=created_at desc`,
     }),
   }),
 });

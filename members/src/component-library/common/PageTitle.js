@@ -3,12 +3,15 @@ import { styled } from "../stitches";
 const Wrapper = styled("div", {
   display: "grid",
   gridTemplateColumns: "1fr auto",
+  paddingLeft: "$bodyHorizontal",
+  paddingRight: "$bodyHorizontal",
+  paddingTop: "$bodyVertical",
+  paddingBottom: "$bodyVertical",
 });
 
 const H1 = styled("h1", {
   fontSize: "$32",
   fontWeight: "bold",
-  marginBottom: "$rhythm",
 });
 
 const Accessories = styled("div", {});

@@ -12,10 +12,10 @@ export const { styled } = createStitches({
     },
     space: {
       drawer: "32px",
-      body: "32px 48px",
+      bodyVertical: "32px",
+      bodyHorizontal: "48px",
       panel: "24px",
       input: "12px",
-      rhythm: "24px",
     },
     fontSizes: {
       12: "12px",

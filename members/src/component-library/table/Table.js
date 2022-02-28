@@ -1,13 +1,21 @@
 import React from "react";
+import { styled } from "../stitches";
 
-export const Table = ({ columns, children }) => (
-  <div role="table">
-    {React.Children.map(children, (child) => {
-      if (React.isValidElement(child)) {
-        return React.cloneElement(child, { columns });
-      }
+const Wrapper = styled("div", {
+  paddingLeft: "$bodyHorizontal",
+  paddingRight: "$bodyHorizontal",
+  overflow: "auto",
+});
 
-      return child;
-    })}
-  </div>
+const Inner = styled("div", {
+  position: "relative",
+});
+
+export const Table = React.forwardRef(
+  ({ children, header, virtualizerTotalSize, ...props }, ref) => (
+    <Wrapper role="table" ref={ref} {...props}>
+      {header}
+      <Inner style={{ height: `${virtualizerTotalSize}px` }}>{children}</Inner>
+    </Wrapper>
+  )
 );

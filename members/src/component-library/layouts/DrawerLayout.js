@@ -1,6 +1,6 @@
 import { styled } from "../stitches";
 
-const Wrapper = styled("main", {
+const Wrapper = styled("div", {
   display: "grid",
   gridTemplateColumns: "320px auto",
   minHeight: "100vh",
@@ -11,9 +11,7 @@ const Drawer = styled("nav", {
   borderRight: "1px $seperator solid",
 });
 
-const Body = styled("main", {
-  padding: "$body",
-});
+const Body = styled("main", {});
 
 export const DrawerLayout = ({ drawer, children }) => (
   <Wrapper>
