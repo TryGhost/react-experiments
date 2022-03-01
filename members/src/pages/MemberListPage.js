@@ -63,6 +63,10 @@ export const MemberListPage = () => {
   }, [canFetchMore, isFetching, members, virtualizer.virtualItems]);
 
   useEffect(() => {
+    if (Object.keys(filters).length === 0) {
+      return;
+    }
+
     setMembers([]);
     setPageNumber(0);
   }, [filters]);
