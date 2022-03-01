@@ -18,6 +18,7 @@ import {
 } from "../component-library/virtualizedTable/VirtualizedTableRow";
 import { VirtualizedTableRowPlaceholder } from "../component-library/virtualizedTable/VirtualizedTableRowPlaceholder";
 import { TabularPageLayout } from "../component-library/layouts/TabularPageLayout";
+import { Input } from "../component-library/form/Input";
 
 export const MemberListPage = () => {
   const siteUrl = useSelector((state) => state.config.siteUrl);
@@ -75,7 +76,7 @@ export const MemberListPage = () => {
       pageTitle={
         <PageTitle
           accessories={
-            <input
+            <Input
               type="search"
               onChange={(e) =>
                 setFilters({
@@ -84,6 +85,7 @@ export const MemberListPage = () => {
                 })
               }
               placeholder="Search"
+              noBottom
             />
           }
         >

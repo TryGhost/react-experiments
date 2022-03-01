@@ -17,5 +17,10 @@ export const Input = styled("input", {
         color: "$errorText",
       },
     },
+    noBottom: {
+      true: {
+        marginBottom: 0,
+      },
+    },
   },
 });

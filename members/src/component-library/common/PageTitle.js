@@ -2,10 +2,11 @@ import { styled } from "../stitches";
 
 const Wrapper = styled("div", {
   display: "grid",
-  gridTemplateColumns: "1fr auto",
+  gridTemplateColumns: "1fr 25%",
   paddingLeft: "$bodyHorizontal",
   paddingRight: "$bodyHorizontal",
   paddingTop: "$bodyVertical",
+  paddingBottom: "$bodyVertical",
 });
 
 const H1 = styled("h1", {
