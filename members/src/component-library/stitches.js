@@ -9,7 +9,7 @@ export const { styled } = createStitches({
       muted: "#626d79",
       washedOut: "#abb4be",
       errorBackground: "#fee",
-      errorBorder: "#c66",
+      errorBorder: "#c00",
       errorText: "#a00",
     },
     sizes: {

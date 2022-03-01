@@ -24,6 +24,7 @@ export const AuthPage = () => {
       <Input
         id="siteUrl"
         placeholder="e.g. https://josh-demo.ghost.io"
+        error={!!errors.siteUrl}
         {...register("siteUrl", {
           required: { value: true, message: "Site URL is required" },
           pattern: {
@@ -36,10 +37,11 @@ export const AuthPage = () => {
       <Label htmlFor="staffAccessToken">Staff access token</Label>
       <Input
         id="staffAccessToken"
+        error={!!errors.staffAccessToken}
         {...register("staffAccessToken", {
           required: { value: true, message: "Staff access token is required" },
           pattern: {
-            value: /.*:.*/,
+            value: /.+:.+/,
             message: "Staff access token doesn't look like a valid token",
           },
         })}
