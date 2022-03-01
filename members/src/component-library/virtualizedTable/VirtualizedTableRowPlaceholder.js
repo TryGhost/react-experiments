@@ -18,7 +18,11 @@ export const VirtualizedTableRowPlaceholder = ({
   style = {},
   ...props
 }) => (
-  <Wrapper style={{ ...style, gridTemplateColumns: columns }} {...props}>
+  <Wrapper
+    style={{ ...style, gridTemplateColumns: columns }}
+    {...props}
+    aria-hidden="true"
+  >
     Loading...
   </Wrapper>
 );

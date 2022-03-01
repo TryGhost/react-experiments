@@ -28,9 +28,12 @@ export const VirtualizedTableRow = ({
     style={{ ...style, gridTemplateColumns: columns }}
     as={link ? "a" : undefined}
     {...props}
+    role="row"
   >
     {values.map((value, index) => (
-      <div key={index}>{value}</div>
+      <div key={index} role="cell">
+        {value}
+      </div>
     ))}
   </Wrapper>
 );
