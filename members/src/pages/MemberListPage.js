@@ -95,7 +95,7 @@ export const MemberListPage = () => {
         ref={parentRef}
         header={
           <VirtualizedTableHeader
-            columns="45% 1fr 1fr 1fr"
+            columns="50% 1fr 1fr 1fr"
             values={[
               `${formatNumber(data?.meta.pagination.total || 0)} Members`,
               "Open rate",
@@ -112,7 +112,7 @@ export const MemberListPage = () => {
           if (!member) {
             return (
               <VirtualizedTableRowPlaceholder
-                columns="45% 1fr 1fr 1fr"
+                columns="50% 1fr 1fr 1fr"
                 key={row.index}
                 style={{
                   height: `${row.size}px`,
@@ -126,7 +126,7 @@ export const MemberListPage = () => {
 
           return (
             <VirtualizedTableRow
-              columns="45% 1fr 1fr 1fr"
+              columns="50% 1fr 1fr 1fr"
               link={`${siteUrl}/ghost/#/members/${member.id}`}
               values={[
                 <MemberProfile
