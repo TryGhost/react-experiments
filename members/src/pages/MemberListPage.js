@@ -66,7 +66,9 @@ export const MemberListPage = () => {
 
     setMembers([]);
     setPageNumber(0);
-  }, [filters]);
+
+    virtualizer.scrollToIndex(0);
+  }, [filters]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <TabularPageLayout
@@ -111,11 +113,11 @@ export const MemberListPage = () => {
             return (
               <VirtualizedTableRowPlaceholder
                 columns="45% 1fr 1fr 1fr"
+                key={row.index}
                 style={{
                   height: `${row.size}px`,
                   transform: `translateY(${row.start}px)`,
                 }}
-                key={row.index}
               >
                 Loading...
               </VirtualizedTableRowPlaceholder>
