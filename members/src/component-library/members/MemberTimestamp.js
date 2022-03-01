@@ -1,4 +1,3 @@
-import { formatDate, formatTimeAgo } from "../../utils/dateTime";
 import { styled } from "../stitches";
 
 const Timestamp = styled("div", {
@@ -9,9 +8,9 @@ const TimeAgo = styled(Timestamp, {
   color: "$washedOut",
 });
 
-export const MemberTimestamp = ({ createdAt }) => (
+export const MemberTimestamp = ({ timestamp, timeAgo }) => (
   <>
-    <Timestamp>{formatDate(createdAt)}</Timestamp>
-    <TimeAgo>{formatTimeAgo(createdAt)}</TimeAgo>
+    <Timestamp>{timestamp}</Timestamp>
+    <TimeAgo>{timeAgo}</TimeAgo>
   </>
 );

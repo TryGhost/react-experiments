@@ -8,6 +8,8 @@ import { MemberOpenRate } from "../component-library/members/MemberOpenRate";
 import { MemberTimestamp } from "../component-library/members/MemberTimestamp";
 import { useGetMembersQuery } from "../store/adminApi";
 import { formatNumber } from "../utils/lang";
+import { getCountryFromGeolocationJSON } from "../utils/geolocation";
+import { formatDate, formatTimeAgo } from "../utils/dateTime";
 import { VirtualizedTable } from "../component-library/virtualizedTable/VirtualizedTable";
 import { VirtualizedTableHeader } from "../component-library/virtualizedTable/VirtualizedTableHeader";
 import {
@@ -131,8 +133,13 @@ export const MemberListPage = () => {
                   imageUrl={member.avatarImage}
                 />,
                 <MemberOpenRate openRate={member.emailOpenRate} />,
-                <MemberLocation geolocationJSON={member.geolocation} />,
-                <MemberTimestamp createdAt={member.createdAt} />,
+                <MemberLocation
+                  country={getCountryFromGeolocationJSON(member.geolocation)}
+                />,
+                <MemberTimestamp
+                  timestamp={formatDate(member.createdAt)}
+                  timeAgo={formatTimeAgo(member.createdAt)}
+                />,
               ]}
               key={row.index}
               style={{

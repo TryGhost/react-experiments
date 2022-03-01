@@ -1,4 +1,3 @@
-import { getCountryFromGeolocationJSON } from "../../utils/geolocation";
 import { styled } from "../stitches";
 
 const Text = styled("div", {
@@ -13,8 +12,6 @@ const Text = styled("div", {
   },
 });
 
-export const MemberLocation = ({ geolocationJSON }) => {
-  const country = getCountryFromGeolocationJSON(geolocationJSON);
-
-  return <Text present={!!country}>{country || "Unknown"}</Text>;
-};
+export const MemberLocation = ({ country }) => (
+  <Text present={!!country}>{country || "Unknown"}</Text>
+);

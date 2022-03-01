@@ -1,4 +1,3 @@
-import { getInitialsFromName } from "../../utils/lang";
 import { styled } from "../stitches";
 
 const Wrapper = styled("div", {
@@ -24,6 +23,12 @@ const Image = styled("img", {
   left: 0,
   right: 0,
 });
+
+const getInitialsFromName = (name) =>
+  name
+    .split(" ", 2)
+    .map((component) => (component.length > 0 ? component[0] : ""))
+    .join("");
 
 const getColorForName = (name) => {
   let hash = 0;
