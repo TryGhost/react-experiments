@@ -64,7 +64,7 @@ export const MemberListPage = () => {
 
   useEffect(() => {
     setMembers([]);
-    setPageNumber(1);
+    setPageNumber(0);
   }, [filters]);
 
   return (
