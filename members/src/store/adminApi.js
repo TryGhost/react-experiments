@@ -2,6 +2,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { getJWTFromStaffAccessToken } from "../utils/jwt";
 import camelcaseKeys from "camelcase-keys";
 
+const injectQueryString = (endpoint, query = {}) =>
+  `${endpoint}?${new URLSearchParams(query).toString()}`;
+
 export const adminApi = createApi({
   reducerPath: "adminApi",
   baseQuery: async (args, api, extraOptions) => {
@@ -31,11 +34,12 @@ export const adminApi = createApi({
     }),
     getMembers: builder.query({
       query: ({ page, filters = {} }) =>
-        `members/?page=${page}&${new URLSearchParams({
+        injectQueryString("members/", {
           ...filters,
+          page,
           order: "created_at desc",
           limit: 50,
-        }).toString()}`,
+        }),
     }),
   }),
 });
