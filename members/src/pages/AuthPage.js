@@ -47,7 +47,7 @@ export const AuthPage = () => {
         })}
       />
 
-      <Button type="submit">Submit</Button>
+      <Button type="submit">Sign in</Button>
     </form>
   );
 };
