@@ -30,7 +30,12 @@ export const adminApi = createApi({
       query: () => "site/",
     }),
     getMembers: builder.query({
-      query: (page) => `members/?page=${page}&limit=50&order=created_at desc`,
+      query: ({ page, filters = {} }) =>
+        `members/?page=${page}&${new URLSearchParams({
+          ...filters,
+          order: "created_at desc",
+          limit: 50,
+        }).toString()}`,
     }),
   }),
 });

@@ -27,7 +27,11 @@ export const MemberListPage = () => {
 
   const [pageNumber, setPageNumber] = useState(1);
   const [members, setMembers] = useState([]);
-  const { isFetching, data } = useGetMembersQuery(pageNumber);
+  const [filters, setFilters] = useState({});
+  const { isFetching, data } = useGetMembersQuery({
+    page: pageNumber,
+    filters,
+  });
 
   const canFetchMore = pageNumber < (data?.meta.pagination.pages || Infinity);
 
@@ -58,9 +62,29 @@ export const MemberListPage = () => {
     }
   }, [canFetchMore, isFetching, members, virtualizer.virtualItems]);
 
+  useEffect(() => {
+    setMembers([]);
+    setPageNumber(1);
+  }, [filters]);
+
   return (
     <Wrapper>
-      <PageTitle accessories={<>filters</>}>Members</PageTitle>
+      <PageTitle
+        accessories={
+          <input
+            type="search"
+            onChange={(e) =>
+              setFilters({
+                ...filters,
+                search: e.target.value,
+              })
+            }
+            placeholder="Search"
+          />
+        }
+      >
+        Members
+      </PageTitle>
       <Table
         ref={parentRef}
         header={
@@ -87,6 +111,7 @@ export const MemberListPage = () => {
                   height: `${row.size}px`,
                   transform: `translateY(${row.start}px)`,
                 }}
+                key={row.index}
               >
                 Loading...
               </TableRowPlaceholder>
@@ -111,7 +136,7 @@ export const MemberListPage = () => {
                   {formatTimeAgo(member.createdAt)}
                 </>,
               ]}
-              key={member.id}
+              key={row.index}
               style={{
                 height: `${row.size}px`,
                 transform: `translateY(${row.start}px)`,
