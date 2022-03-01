@@ -8,6 +8,9 @@ export const { styled } = createStitches({
       seperator: "#e6e9eb",
       muted: "#626d79",
       washedOut: "#abb4be",
+      errorBackground: "#fee",
+      errorBorder: "#c66",
+      errorText: "#a00",
     },
     sizes: {
       logo: "32px",
@@ -18,6 +21,7 @@ export const { styled } = createStitches({
       bodyHorizontal: "48px",
       panel: "24px",
       input: "12px",
+      error: "8px 10px",
     },
     fontSizes: {
       12: "12px",
@@ -28,6 +32,7 @@ export const { styled } = createStitches({
     },
     radii: {
       panel: "10px",
+      error: "3px",
     },
     fonts: {
       system:
