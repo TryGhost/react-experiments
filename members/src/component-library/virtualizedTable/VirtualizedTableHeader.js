@@ -17,7 +17,7 @@ const Wrapper = styled("div", {
   },
 });
 
-export const TableHeader = ({ columns, values = [] }) => (
+export const VirtualizedTableHeader = ({ columns, values = [] }) => (
   <Wrapper style={{ gridTemplateColumns: columns }}>
     {values.map((value, index) => (
       <div key={index}>{value}</div>

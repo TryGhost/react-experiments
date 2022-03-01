@@ -11,7 +11,7 @@ const Inner = styled("div", {
   position: "relative",
 });
 
-export const Table = React.forwardRef(
+export const VirtualizedTable = React.forwardRef(
   ({ children, header, virtualizerTotalSize, ...props }, ref) => (
     <Wrapper role="table" ref={ref} {...props}>
       {header}

@@ -2,18 +2,18 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useVirtual } from "react-virtual";
 import { PageTitle } from "../component-library/common/PageTitle";
-import { Table } from "../component-library/table/Table";
 import { MemberProfile } from "../component-library/members/MemberProfile";
 import { MemberLocation } from "../component-library/members/MemberLocation";
 import { useGetMembersQuery } from "../store/adminApi";
 import { formatDate, formatTimeAgo } from "../utils/dateTime";
 import { formatNumber } from "../utils/lang";
-import { TableHeader } from "../component-library/table/TableHeader";
+import { VirtualizedTable } from "../component-library/virtualizedTable/VirtualizedTable";
+import { VirtualizedTableHeader } from "../component-library/virtualizedTable/VirtualizedTableHeader";
 import {
-  TableRow,
-  TABLE_ROW_HEIGHT,
-} from "../component-library/table/TableRow";
-import { TableRowPlaceholder } from "../component-library/table/TableRowPlaceholder";
+  VirtualizedTableRow,
+  VIRTUALIZED_TABLE_ROW_HEIGHT,
+} from "../component-library/virtualizedTable/VirtualizedTableRow";
+import { VirtualizedTableRowPlaceholder } from "../component-library/virtualizedTable/VirtualizedTableRowPlaceholder";
 import { TabularPageLayout } from "../component-library/layouts/TabularPageLayout";
 
 export const MemberListPage = () => {
@@ -33,7 +33,7 @@ export const MemberListPage = () => {
   const virtualizer = useVirtual({
     size: data?.meta.pagination.total || 0,
     parentRef,
-    estimateSize: useCallback(() => TABLE_ROW_HEIGHT, []),
+    estimateSize: useCallback(() => VIRTUALIZED_TABLE_ROW_HEIGHT, []),
   });
 
   useEffect(() => {
@@ -86,10 +86,10 @@ export const MemberListPage = () => {
         </PageTitle>
       }
     >
-      <Table
+      <VirtualizedTable
         ref={parentRef}
         header={
-          <TableHeader
+          <VirtualizedTableHeader
             columns="45% 1fr 1fr 1fr"
             values={[
               `${formatNumber(data?.meta.pagination.total || 0)} Members`,
@@ -106,7 +106,7 @@ export const MemberListPage = () => {
 
           if (!member) {
             return (
-              <TableRowPlaceholder
+              <VirtualizedTableRowPlaceholder
                 columns="45% 1fr 1fr 1fr"
                 style={{
                   height: `${row.size}px`,
@@ -115,12 +115,12 @@ export const MemberListPage = () => {
                 key={row.index}
               >
                 Loading...
-              </TableRowPlaceholder>
+              </VirtualizedTableRowPlaceholder>
             );
           }
 
           return (
-            <TableRow
+            <VirtualizedTableRow
               columns="45% 1fr 1fr 1fr"
               link={`${siteUrl}/ghost/#/members/${member.id}`}
               values={[
@@ -145,7 +145,7 @@ export const MemberListPage = () => {
             />
           );
         })}
-      </Table>
+      </VirtualizedTable>
     </TabularPageLayout>
   );
 };

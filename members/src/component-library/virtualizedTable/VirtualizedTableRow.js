@@ -1,10 +1,10 @@
 import { styled } from "../stitches";
 
-export const TABLE_ROW_HEIGHT = 80;
+export const VIRTUALIZED_TABLE_ROW_HEIGHT = 80;
 
 const Wrapper = styled("div", {
   display: "grid",
-  height: TABLE_ROW_HEIGHT,
+  height: VIRTUALIZED_TABLE_ROW_HEIGHT,
   position: "absolute",
   top: 0,
   left: 0,
@@ -15,7 +15,7 @@ const Wrapper = styled("div", {
   color: "$text",
 });
 
-export const TableRow = ({
+export const VirtualizedTableRow = ({
   columns,
   link = undefined,
   values = [],
