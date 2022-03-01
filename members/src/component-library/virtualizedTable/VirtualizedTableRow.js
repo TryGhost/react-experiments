@@ -10,6 +10,7 @@ const Wrapper = styled("div", {
   left: 0,
   width: "100%",
   alignItems: "center",
+  justifyContent: "center",
   borderTop: "1px $seperator solid",
   textDecoration: "none",
   color: "$text",

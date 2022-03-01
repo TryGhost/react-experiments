@@ -4,8 +4,9 @@ import { useVirtual } from "react-virtual";
 import { PageTitle } from "../component-library/common/PageTitle";
 import { MemberProfile } from "../component-library/members/MemberProfile";
 import { MemberLocation } from "../component-library/members/MemberLocation";
+import { MemberOpenRate } from "../component-library/members/MemberOpenRate";
+import { MemberTimestamp } from "../component-library/members/MemberTimestamp";
 import { useGetMembersQuery } from "../store/adminApi";
-import { formatDate, formatTimeAgo } from "../utils/dateTime";
 import { formatNumber } from "../utils/lang";
 import { VirtualizedTable } from "../component-library/virtualizedTable/VirtualizedTable";
 import { VirtualizedTableHeader } from "../component-library/virtualizedTable/VirtualizedTableHeader";
@@ -129,13 +130,9 @@ export const MemberListPage = () => {
                   email={member.email}
                   imageUrl={member.avatarImage}
                 />,
-                member.emailOpenRate || "N/A",
+                <MemberOpenRate openRate={member.emailOpenRate} />,
                 <MemberLocation geolocationJSON={member.geolocation} />,
-                <>
-                  {formatDate(member.createdAt)}
-                  <br />
-                  {formatTimeAgo(member.createdAt)}
-                </>,
+                <MemberTimestamp createdAt={member.createdAt} />,
               ]}
               key={row.index}
               style={{

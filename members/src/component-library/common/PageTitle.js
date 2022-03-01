@@ -6,7 +6,6 @@ const Wrapper = styled("div", {
   paddingLeft: "$bodyHorizontal",
   paddingRight: "$bodyHorizontal",
   paddingTop: "$bodyVertical",
-  paddingBottom: "$bodyVertical",
 });
 
 const H1 = styled("h1", {
