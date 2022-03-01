@@ -1,5 +1,5 @@
 import { styled } from "../stitches";
-import orbImage from "../../assets/orb.png";
+import orbImage from "../assets/orb.png";
 
 const LogoImage = styled("img", {
   width: "$logo",
