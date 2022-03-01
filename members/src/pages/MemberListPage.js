@@ -14,13 +14,7 @@ import {
   TABLE_ROW_HEIGHT,
 } from "../component-library/table/TableRow";
 import { TableRowPlaceholder } from "../component-library/table/TableRowPlaceholder";
-import { styled } from "../component-library/stitches";
-
-const Wrapper = styled("div", {
-  display: "grid",
-  height: "100vh",
-  gridTemplateRows: "auto 1fr",
-});
+import { TabularPageLayout } from "../component-library/layouts/TabularPageLayout";
 
 export const MemberListPage = () => {
   const siteUrl = useSelector((state) => state.config.siteUrl);
@@ -72,23 +66,26 @@ export const MemberListPage = () => {
   }, [filters]);
 
   return (
-    <Wrapper>
-      <PageTitle
-        accessories={
-          <input
-            type="search"
-            onChange={(e) =>
-              setFilters({
-                ...filters,
-                search: e.target.value,
-              })
-            }
-            placeholder="Search"
-          />
-        }
-      >
-        Members
-      </PageTitle>
+    <TabularPageLayout
+      pageTitle={
+        <PageTitle
+          accessories={
+            <input
+              type="search"
+              onChange={(e) =>
+                setFilters({
+                  ...filters,
+                  search: e.target.value,
+                })
+              }
+              placeholder="Search"
+            />
+          }
+        >
+          Members
+        </PageTitle>
+      }
+    >
       <Table
         ref={parentRef}
         header={
@@ -149,7 +146,7 @@ export const MemberListPage = () => {
           );
         })}
       </Table>
-    </Wrapper>
+    </TabularPageLayout>
   );
 };
 
