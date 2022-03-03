@@ -6,6 +6,7 @@ import { useGetSiteQuery } from "./store/adminApi";
 import { useSelector } from "react-redux";
 import { AuthLayout } from "./component-library/layouts/AuthLayout";
 import { Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const AuthPage = React.lazy(() => import("./pages/AuthPage"));
 const MemberListPage = React.lazy(() => import("./pages/MemberListPage"));
@@ -37,7 +38,12 @@ export const App = () => {
   return (
     <DrawerLayout drawer={<Drawer />}>
       <Suspense fallback="Loading...">
-        <MemberListPage />
+        <Router>
+          <Routes>
+            <Route index element={<MemberListPage />} />
+            <Route path="*" element={"404!"} />
+          </Routes>
+        </Router>
       </Suspense>
     </DrawerLayout>
   );
